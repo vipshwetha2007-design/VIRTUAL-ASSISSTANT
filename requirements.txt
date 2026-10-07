@@ -3,5 +3,4 @@ scikit-learn
 SpeechRecognition
 pyttsx3
 joblib
-PyAudio
 Flask
