@@ -171,58 +171,162 @@ document.querySelectorAll("[data-command]").forEach((button) => {
 });
 
 const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
 let recognitionErrorShown = false;
+let recognition = null;
 
 function showVoiceError(message) {
   console.error(message);
+
   if (!recognitionErrorShown) {
     addMessage("assistant", message);
     recognitionErrorShown = true;
   }
+
   listenLabel.textContent = message;
   setStatus("Ready");
 }
 
 if (!Recognition) {
-  listenLabel.textContent = "Voice recognition requires Chrome or Edge. You can type commands.";
+
+  listenLabel.textContent =
+    "Voice recognition requires Chrome or Edge. You can type commands.";
+
   mic.addEventListener("click", () => {
-    showVoiceError("Voice recognition is not supported in this browser. Please use Chrome or Edge, or type your command.");
+    showVoiceError(
+      "Voice recognition is not supported in this browser."
+    );
   });
+
 } else {
-  const recognition = new Recognition();
-  recognition.lang = "en-US";
-  recognition.interimResults = false;
+
+  recognition = new Recognition();
+
+  recognition.lang = "en-IN";
+  recognition.continuous = false;
+  recognition.interimResults = true;
   recognition.maxAlternatives = 1;
-  mic.addEventListener("click", () => {
+
+  mic.addEventListener("click", async () => {
+
     recognitionErrorShown = false;
+
     try {
+
+      // Force browser to request/check microphone access
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: true
+      });
+
+      console.log("Microphone access successful");
+
+      // We only use this stream to verify microphone access.
+      stream.getTracks().forEach(track => track.stop());
+
       recognition.start();
+
     } catch (error) {
-      showVoiceError(`Voice recognition could not start: ${error.message}. Please try again or type a command.`);
+
+      console.error("Microphone error:", error);
+
+      showVoiceError(
+        "Could not access the microphone. Check your microphone settings."
+      );
     }
   });
+
   recognition.onstart = () => {
+
+    console.log("Speech recognition started");
+
     mic.classList.add("listening");
-    listenLabel.textContent = "Listening...";
+
+    listenLabel.textContent = "Listening... Speak now";
+
     setStatus("Listening...", true);
   };
+
+  recognition.onspeechstart = () => {
+
+    console.log("Speech detected");
+
+    listenLabel.textContent = "I can hear you...";
+  };
+
+  recognition.onspeechend = () => {
+
+    console.log("Speech ended");
+
+    listenLabel.textContent = "Processing...";
+  };
+
   recognition.onresult = (event) => {
-    const heard = event.results[0][0].transcript.trim();
-    if (!heard) {
-      showVoiceError("I did not hear a command. Please try again or type a command.");
-      return;
+
+    let heard = "";
+
+    for (let i = event.resultIndex; i < event.results.length; i++) {
+
+      heard += event.results[i][0].transcript;
+
     }
+
+    heard = heard.trim();
+
+    console.log("Recognized:", heard);
+
+    if (!heard) return;
+
     input.value = heard;
+
+    // IMPORTANT:
+    // Voice command goes through the SAME function
+    // as typed commands.
     sendCommand(heard);
   };
+
   recognition.onerror = (event) => {
-    const message = event.error === "not-allowed" || event.error === "service-not-allowed"
-      ? "Microphone permission was denied. You can still type commands."
-      : `Voice recognition failed (${event.error}). Please try again or type a command.`;
-    showVoiceError(message);
+
+    console.error("Speech recognition error:", event.error);
+
+    if (event.error === "no-speech") {
+
+      showVoiceError(
+        "I couldn't hear anything. Click the microphone and speak immediately."
+      );
+
+    } else if (
+      event.error === "not-allowed" ||
+      event.error === "service-not-allowed"
+    ) {
+
+      showVoiceError(
+        "Microphone permission is blocked. Please allow microphone access."
+      );
+
+    } else if (event.error === "audio-capture") {
+
+      showVoiceError(
+        "No working microphone was detected."
+      );
+
+    } else {
+
+      showVoiceError(
+        `Voice recognition error: ${event.error}`
+      );
+    }
   };
+
   recognition.onend = () => {
+
+    console.log("Speech recognition ended");
+
     mic.classList.remove("listening");
-    if (!recognitionErrorShown) listenLabel.textContent = "Tap to speak";
+
+    if (!recognitionErrorShown) {
+      listenLabel.textContent = "Tap to speak";
+    }
+
+    setStatus("Ready");
   };
 }
