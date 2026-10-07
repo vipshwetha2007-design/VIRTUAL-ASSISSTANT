@@ -1,0 +1,221 @@
+command,intent
+open youtube,open_youtube
+start youtube,open_youtube
+launch youtube,open_youtube
+go to youtube,open_youtube
+open the youtube website,open_youtube
+take me to youtube,open_youtube
+show youtube,open_youtube
+bring up youtube,open_youtube
+can you open youtube,open_youtube
+please open youtube,open_youtube
+visit youtube,open_youtube
+youtube please,open_youtube
+navigate to youtube,open_youtube
+access youtube,open_youtube
+load youtube,open_youtube
+open youtube for me,open_youtube
+start the youtube app,open_youtube
+launch the youtube site,open_youtube
+go on youtube,open_youtube
+i want youtube,open_youtube
+open google,open_google
+start google,open_google
+launch google,open_google
+go to google,open_google
+open the google website,open_google
+take me to google,open_google
+show google,open_google
+bring up google,open_google
+can you open google,open_google
+please open google,open_google
+visit google,open_google
+google please,open_google
+navigate to google,open_google
+access google,open_google
+load google,open_google
+open google for me,open_google
+start the google page,open_google
+launch the google site,open_google
+go on google,open_google
+i want google,open_google
+what is the time,tell_time
+tell me the time,tell_time
+current time,tell_time
+what time is it,tell_time
+give me the time,tell_time
+can you tell the time,tell_time
+please tell me the time,tell_time
+show the current time,tell_time
+time now,tell_time
+what is the current time,tell_time
+tell me what time it is,tell_time
+do you know the time,tell_time
+read the time,tell_time
+say the time,tell_time
+could you give me the time,tell_time
+tell current time,tell_time
+time please,tell_time
+i need the time,tell_time
+what time do we have,tell_time
+let me know the time,tell_time
+what is today's date,tell_date
+tell me the date,tell_date
+current date,tell_date
+what date is it,tell_date
+give me today's date,tell_date
+can you tell the date,tell_date
+please tell me today's date,tell_date
+show the current date,tell_date
+date now,tell_date
+what is the current date,tell_date
+tell me what day it is,tell_date
+do you know today's date,tell_date
+read the date,tell_date
+say the date,tell_date
+could you give me the date,tell_date
+tell current date,tell_date
+date please,tell_date
+i need today's date,tell_date
+what day is today,tell_date
+let me know the date,tell_date
+play music,play_music
+start music,play_music
+play a song,play_music
+play some music,play_music
+put on music,play_music
+play songs,play_music
+start playing music,play_music
+play my music,play_music
+play something,play_music
+play a playlist,play_music
+can you play music,play_music
+please play music,play_music
+i want to hear music,play_music
+play relaxing music,play_music
+play party music,play_music
+play a tune,play_music
+start a song,play_music
+play the latest songs,play_music
+put on some songs,play_music
+play music for me,play_music
+open calculator,open_calculator
+start calculator,open_calculator
+launch calculator,open_calculator
+open the calculator,open_calculator
+bring up calculator,open_calculator
+can you open calculator,open_calculator
+please open calculator,open_calculator
+i need calculator,open_calculator
+show calculator,open_calculator
+start the calculator app,open_calculator
+launch the calculator app,open_calculator
+open calc,open_calculator
+run calculator,open_calculator
+take me to calculator,open_calculator
+access calculator,open_calculator
+calculator please,open_calculator
+open a calculator,open_calculator
+get calculator ready,open_calculator
+turn on calculator,open_calculator
+load calculator,open_calculator
+open notepad,open_notepad
+start notepad,open_notepad
+launch notepad,open_notepad
+open the notepad,open_notepad
+bring up notepad,open_notepad
+can you open notepad,open_notepad
+please open notepad,open_notepad
+i need notepad,open_notepad
+show notepad,open_notepad
+start the notepad app,open_notepad
+launch the notepad app,open_notepad
+open notes,open_notepad
+run notepad,open_notepad
+take me to notepad,open_notepad
+access notepad,open_notepad
+notepad please,open_notepad
+open a text editor,open_notepad
+get notepad ready,open_notepad
+turn on notepad,open_notepad
+load notepad,open_notepad
+set reminder,set_reminder
+create reminder,set_reminder
+remember this,set_reminder
+remind me,set_reminder
+add a reminder,set_reminder
+make a reminder,set_reminder
+save a reminder,set_reminder
+set a new reminder,set_reminder
+can you remind me,set_reminder
+please set a reminder,set_reminder
+i need a reminder,set_reminder
+write down a reminder,set_reminder
+keep a reminder,set_reminder
+remind me later,set_reminder
+make note to remind me,set_reminder
+set reminder for me,set_reminder
+create a note,set_reminder
+remember something,set_reminder
+add reminder please,set_reminder
+save this reminder,set_reminder
+search python,google_search
+search machine learning,google_search
+search for python tutorials,google_search
+google search for weather,google_search
+look up python programming,google_search
+find information about space,google_search
+search the web for recipes,google_search
+search google for news,google_search
+look for nearby restaurants,google_search
+find cats on google,google_search
+search for artificial intelligence,google_search
+google climate change,google_search
+search internet for movies,google_search
+look up today's headlines,google_search
+find information on pandas,google_search
+search the web for music,google_search
+can you search for hotels,google_search
+please search for flights,google_search
+find java examples,google_search
+search google for cricket scores,google_search
+exit,exit
+quit,exit
+close assistant,exit
+stop assistant,exit
+goodbye,exit
+bye,exit
+end the program,exit
+shut down assistant,exit
+please exit,exit
+please quit,exit
+turn yourself off,exit
+close voice mate,exit
+stop listening,exit
+leave now,exit
+end this session,exit
+quit the app,exit
+terminate assistant,exit
+i am done,exit
+exit the application,exit
+close the program,exit
+help,help
+show help,help
+what can you do,help
+what are your commands,help
+show available commands,help
+tell me what you can do,help
+how do i use you,help
+give me instructions,help
+list your commands,help
+can you help me,help
+i need help,help
+help me please,help
+show me options,help
+what services do you offer,help
+what can i ask you,help
+explain your features,help
+show assistant commands,help
+how can you help,help
+tell me your capabilities,help
+give me command options,help

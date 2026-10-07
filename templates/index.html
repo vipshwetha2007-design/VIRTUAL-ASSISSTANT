@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voice Mate | AI Voice Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✦</span><div><h1>Voice Mate</h1><p>AI Voice Assistant</p></div></div>
+      <div class="ready-pill"><span></span><span id="header-status">Online · Ready</span></div>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">YOUR DESKTOP COMPANION</p>
+      <h2>How can I help you?</h2>
+      <p class="hero-copy">Speak naturally or type a request. Voice Mate understands and acts on it.</p>
+      <button id="microphone" class="microphone" type="button" aria-label="Speak a command"><span>⌁</span></button>
+      <p id="listen-label" class="listen-label">Tap to speak</p>
+    </section>
+
+    <section class="workspace">
+      <section class="chat-card" aria-label="Conversation">
+        <div class="chat-heading"><div><h3>Conversation</h3><p>Your recent requests appear here.</p></div><button id="clear-chat" class="text-button" type="button">Clear</button></div>
+        <div id="chat" class="chat" aria-live="polite">
+          <div class="message assistant"><div class="avatar">VM</div><div class="bubble">Hello! I am ready when you are.</div><time>now</time></div>
+        </div>
+        <form id="command-form" class="command-form">
+          <input id="command-input" type="text" autocomplete="off" placeholder="Try “Play Believer” or “What time is it?”" aria-label="Command">
+          <button class="send-button" type="submit">Send <span>→</span></button>
+        </form>
+      </section>
+
+      <aside class="side-panel">
+        <section class="insight-card">
+          <p class="card-label">ASSISTANT STATUS</p>
+          <div class="status-line"><span class="status-dot"></span><strong id="assistant-status">Ready</strong></div>
+          <dl>
+            <div><dt>Detected intent</dt><dd id="intent-value">Waiting</dd></div>
+            <div><dt>Model</dt><dd id="model-value">{{ model_name }}</dd></div>
+            <div><dt>Confidence</dt><dd id="confidence-value">—</dd></div>
+          </dl>
+        </section>
+        <section class="quick-card">
+          <p class="card-label">QUICK ACTIONS</p>
+          <div class="quick-grid">
+            <button type="button" data-command="open YouTube"><span>▶</span>YouTube</button>
+            <button type="button" data-command="open Google"><span>G</span>Google</button>
+            <button type="button" data-command="play music"><span>♫</span>Music</button>
+            <button type="button" data-command="open calculator"><span>⌗</span>Calculator</button>
+            <button type="button" data-command="open notepad"><span>▤</span>Notepad</button>
+            <button type="button" data-command="what time is it"><span>◷</span>Time</button>
+            <button type="button" data-command="what is today's date"><span>□</span>Date</button>
+            <button type="button" data-command="help"><span>?</span>Help</button>
+          </div>
+        </section>
+      </aside>
+    </section>
+  </main>
+  <template id="typing-template"><div class="message assistant typing"><div class="avatar">VM</div><div class="bubble"><i></i><i></i><i></i></div></div></template>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
