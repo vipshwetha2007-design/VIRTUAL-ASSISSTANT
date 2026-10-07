@@ -204,7 +204,7 @@ if (!Recognition) {
 
   recognition.lang = "en-IN";
   recognition.continuous = false;
-  recognition.interimResults = true;
+  recognition.interimResults =false;
   recognition.maxAlternatives = 1;
 
   mic.addEventListener("click", async () => {
